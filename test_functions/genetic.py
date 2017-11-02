@@ -1,6 +1,6 @@
 from random import randint, uniform
 
-from functions import drop_wave, shubert
+from functions import drop_wave, shubert, six_hump_camel_back
 
 
 INITIAL_X1 = 5.12
@@ -9,7 +9,7 @@ INITIAL_X2 = 5.12
 POPULATION_SIZE = 10
 SOLUTIONS_TO_KEEP_IN_POPULATION = 5
 
-MAX_ITERATIONS = 10
+MAX_ITERATIONS = 1000
 
 
 def genetic(function):
@@ -22,10 +22,10 @@ def genetic(function):
         # calculate result value for each solution in population
         values = apply_function(population, function)
         
-        print('================== ITERACAO ' + str(iteration) + '==================\n\n')
-        for i in range(0, POPULATION_SIZE - 1):
-            print(str(population[i]) + ': ' + str(values[i]))
-            print('\n')
+        # print('================== ITERACAO ' + str(iteration) + '==================\n\n')
+        # for i in range(0, POPULATION_SIZE - 1):
+        #     print(str(population[i]) + ': ' + str(values[i]))
+        #     print('\n')
         
         # filter best solutions in population, reproduce and mutate
         population = choose_best_solutions(population, values)

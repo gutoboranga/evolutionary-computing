@@ -18,3 +18,9 @@ def shubert(x1, x2):
     result = (x1_sum * x2_sum) * (-1)
     
     return result
+
+def six_hump_camel_back(x1, x2):
+    result = (4 - (2.1 * pow(x1, 2)) + (pow(x1, 4) / 3)) * pow(x1, 2)
+    result = result + (x1 * x2) + ((-4 + (4 * pow(x2, 2))) * pow(x2, 2))
+    
+    return result

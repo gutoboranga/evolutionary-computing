@@ -21,18 +21,10 @@ def genetic(function):
         # calculate result value for each solution in population
         values = apply_function(population, function)
         
-        # print('================== ITERACAO ' + str(iteration) + '==================\n\n')
-        # for i in range(0, POPULATION_SIZE - 1):
-        #     print(str(population[i]) + ': ' + str(values[i]))
-        #     print('\n')
-        
         # filter best solutions in population, reproduce and mutate
         population = choose_best_solutions(population, values)
         population = generate_descendants(population)
         population = mutate(population)
-        
-        # best = find_best_solution(population, values)
-        # print(best)
         
         iteration += 1
     

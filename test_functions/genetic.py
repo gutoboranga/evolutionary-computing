@@ -1,5 +1,4 @@
 from random import randint, uniform
-
 from functions import drop_wave, shubert, six_hump_camel_back
 
 
@@ -119,11 +118,10 @@ def find_best_solution(population, values):
         
     return [best_solution, best_value]
 
-# usage example:
-result = genetic(shubert)
-
-best_solution = result[0]
-best_value = result[1]
-
-print("Melhor resultado: {}".format(best_value))
-print("Valores: x1 = {}, x2 = {}".format(best_solution[0], best_solution[1]))
+# example usage:
+# result = genetic(shubert)
+#
+# best_solution = result[0]
+# best_value = result[1]
+#
+# print("\nMelhor resultado:{}\nx1 = {}\nx2 = {}".format(best_value, best_solution[0], best_solution[1]))

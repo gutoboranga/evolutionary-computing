@@ -126,4 +126,4 @@ best_solution = result[0]
 best_value = result[1]
 
 print("Melhor resultado: {}".format(best_value))
-print("Valores: x1={}, x2={}".format(best_solution[0], best_solution[1]))
+print("Valores: x1 = {}, x2 = {}".format(best_solution[0], best_solution[1]))

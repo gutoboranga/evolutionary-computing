@@ -161,7 +161,7 @@ def find_best_solution(population, values):
 ########## Usage ##########
 
 if len(argv) < 2:
-    print("[ERRO] O parâmetro de nome da função a ser executada não foi fornecido")
+    print("[ERRO] O parametro de nome da funcao a ser executada nao foi fornecido")
     exit()
 
 
@@ -172,7 +172,7 @@ if func_name == "shubert":
 elif func_name == "drop_wave":
     func = drop_wave
 else:
-    print("[ERRO] Parâmetros inválidos.")
+    print("[ERRO] Parametros invalidos.")
     exit()
 
 

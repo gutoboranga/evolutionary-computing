@@ -1,7 +1,7 @@
 from sys import argv
 
 from genetic import genetic
-from functions import drop_wave, shubert, six_hump_camel_back
+from functions import drop_wave, shubert
 
 
 if argv[1] == "shubert":

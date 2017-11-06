@@ -1,12 +1,12 @@
 from random import randint, uniform
-from functions import drop_wave, shubert, six_hump_camel_back
+from functions import drop_wave, shubert
 
 
-INITIAL_X1 = 5.12
-INITIAL_X2 = 5.12
+MAX_X1 = 5.12
+MAX_X2 = 5.12
 
-POPULATION_SIZE = 420
-SOLUTIONS_TO_KEEP_IN_POPULATION = 200
+POPULATION_SIZE = 100
+SOLUTIONS_TO_KEEP_IN_POPULATION = 50
 
 MAX_ITERATIONS = 1000
 
@@ -37,8 +37,8 @@ def generate_initial_population():
     population = []
     
     for i in range(0, POPULATION_SIZE - 1):
-        x1 = uniform(0, INITIAL_X1)
-        x2 = uniform(0, INITIAL_X2)
+        x1 = uniform(0, MAX_X1)
+        x2 = uniform(0, MAX_X2)
         
         new_item = (x1, x2)
         
@@ -97,6 +97,30 @@ def reproduce(parents):
     return (x1, x2)
 
 def mutate(population):
+    for i in range(0, len(population)):
+        probability_to_mutate = randint(1,10)
+        
+        # 30 % chance to mutate
+        if probability_to_mutate > 7:
+            # randomize the variable that will change value (0 => x1 and 1 => x2)
+            index = randint(0,1)
+            
+            # add a random value between -1 and 1
+            number_to_add = uniform(-1,1)
+            
+            # convert to list cause tuples can't be reassigned
+            variables_list = list(population[i])
+            variables_list[index] += number_to_add
+            
+            # make sure values are in the valid interval [-5.12, 5.12]
+            if variables_list[index] > 5.12:
+                variables_list[index] = 5.12
+            elif variables_list[index] < -5.12:
+                variables_list[index] = -5.12
+                
+            # convert back to tuple
+            population[i] = tuple(variables_list)
+        
     return population
     
 def find_best_solution(population, values):

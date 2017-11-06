@@ -1,7 +1,5 @@
 # Algoritmo genético
 
-O objetivo deste trabalho é implementar um algoritmo genético que otimize os problemas escolhidos.
-
 <b>Disciplina:</b> Computação Evolutiva
 
 <b>Professor:</b> Dante Augusto Barone
@@ -9,6 +7,8 @@ O objetivo deste trabalho é implementar um algoritmo genético que otimize os p
 <b>Alunos:</b>
 - Augusto Boranga
 - Matheus Pereira
+
+O objetivo deste trabalho é implementar um algoritmo genético que otimize os problemas escolhidos.
 
 ## Problemas escolhidos
 

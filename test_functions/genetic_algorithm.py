@@ -49,9 +49,10 @@ def genetic(function):
         population = generate_descendants(population, values)
         population = mutate(population)
 
-        partial_best = find_best_solution(population, values)[1]
+        result = find_best_solution(population, values)
+        partial_best = result[1]
         truncated = truncate(partial_best, 4)
-        print("{}\t{}".format(iteration, truncated))
+        print("{}\t{} - x1 = {}, x2 = {}".format(iteration, truncated, result[0][0], result[0][1]))
         
         iteration += 1
 

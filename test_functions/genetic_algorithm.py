@@ -63,8 +63,8 @@ def generate_initial_population():
     population = []
 
     for i in range(0, POPULATION_SIZE):
-        x1 = uniform(0, MAX_X)
-        x2 = uniform(0, MAX_X)
+        x1 = uniform(MIN_X, MAX_X)
+        x2 = uniform(MIN_X, MAX_X)
 
         new_item = (x1, x2)
 

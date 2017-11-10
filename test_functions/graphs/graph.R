@@ -1,4 +1,4 @@
-data = read.table(file('results/drop_wave_zoom.txt'))
+data = read.table(file('results/shubert.txt'))
 plot(data, axes=FALSE, type="o", col="blue", lwd=2, pch='', xlab="Generation", ylab="Result")
 
 iterations = data[[1]]
@@ -19,4 +19,4 @@ axis(2, at=seq(first_result, last_result, by=-y_ticks_rate))
 
 box()
 
-title(main="Drop Wave: Evolution over generations (zoom)")
+title(main="Shubert: Evolution over generations")

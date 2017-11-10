@@ -51,7 +51,7 @@ def genetic(function):
 
         partial_best = find_best_solution(population, values)[1]
         truncated = truncate(partial_best, 4)
-        print(truncated)
+        print("{}\t{}".format(iteration, truncated))
         
         iteration += 1
 

@@ -1,5 +1,5 @@
 from random import randint, uniform
-from math import cos, sqrt, pow
+from math import cos, sqrt, pow, trunc
 from sys import argv
 
 ########## Optimization Functions ##########
@@ -49,10 +49,11 @@ def genetic(function):
         population = generate_descendants(population, values)
         population = mutate(population)
 
+        partial_best = find_best_solution(population, values)[1]
+        truncated = truncate(partial_best, 4)
+        print(truncated)
+        
         iteration += 1
-
-        best2 = find_best_solution(population, values)
-        print(str(iteration) + str(best2))
 
     best = find_best_solution(population, values)
 
@@ -174,6 +175,13 @@ def round_if_necessary(x):
     return x
 
 
+def truncate(number, digits):
+    stepper = pow(10.0, digits)
+    t = trunc(stepper * number) / stepper
+    
+    return t
+
+
 ########## Usage ##########
 
 if len(argv) < 2:
@@ -197,5 +205,5 @@ result = genetic(func)
 best_solution = result[0]
 best_value = result[1]
 
-#print(func.__name__.capitalize() + ':')
-print("\nMelhor resultado:{}\nx1 = {}\nx2 = {}".format(best_value, best_solution[0], best_solution[1]))
+# print(func.__name__.capitalize() + ':')
+# print("\nMelhor resultado:{}\nx1 = {}\nx2 = {}".format(best_value, best_solution[0], best_solution[1]))

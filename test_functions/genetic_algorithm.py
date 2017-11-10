@@ -25,8 +25,8 @@ def shubert(x1, x2):
 
 ########## Genetic Algorithm ##########
 
-MAX_X1 = 5.12
-MAX_X2 = 5.12
+MAX_X = 5.12
+MIN_X = -5.12
 
 POPULATION_SIZE = 100
 SOLUTIONS_TO_KEEP_IN_POPULATION = 50
@@ -52,7 +52,7 @@ def genetic(function):
         iteration += 1
 
         best2 = find_best_solution(population, values)
-        print str(iteration) + str(best2)
+        print(str(iteration) + str(best2))
 
     best = find_best_solution(population, values)
 
@@ -63,8 +63,8 @@ def generate_initial_population():
     population = []
 
     for i in range(0, POPULATION_SIZE):
-        x1 = uniform(0, MAX_X1)
-        x2 = uniform(0, MAX_X2)
+        x1 = uniform(0, MAX_X)
+        x2 = uniform(0, MAX_X)
 
         new_item = (x1, x2)
 
@@ -122,17 +122,11 @@ def reproduce(parents):
     # calculates mean of parents x1 and x2
     x1 = parent0[0] * value0/total + parent1[0] * value1/total
     x2 = parent0[1] * value0/total + parent1[1] * value1/total
+    
     # make sure values are in the valid interval [-5.12, 5.12]
-    if x1 > 5.12:
-        x1 = 5.12
-    elif x1 < -5.12:
-        x1 = -5.12
-
-    if x2 > 5.12:
-        x2 = 5.12
-    elif x2 < -5.12:
-        x2 = -5.12
-
+    x1 = round_if_necessary(x1)
+    x2 = round_if_necessary(x2)
+    
     return (x1, x2)
 
 def mutate(population):
@@ -152,11 +146,8 @@ def mutate(population):
             variables_list[index] += number_to_add
 
             # make sure values are in the valid interval [-5.12, 5.12]
-            if variables_list[index] > 5.12:
-                variables_list[index] = 5.12
-            elif variables_list[index] < -5.12:
-                variables_list[index] = -5.12
-
+            variables_list[index] = round_if_necessary(variables_list[index])
+            
             # convert back to tuple
             population[i] = tuple(variables_list)
 
@@ -172,6 +163,15 @@ def find_best_solution(population, values):
             best_solution = population[i]
 
     return [best_solution, best_value]
+
+def round_if_necessary(x):
+    if x > MAX_X:
+        x = MAX_X
+        
+    elif x < MIN_X:
+        x = MIN_X
+        
+    return x
 
 
 ########## Usage ##########

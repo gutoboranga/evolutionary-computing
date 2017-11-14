@@ -82,3 +82,17 @@ O mínimo global desta função é -1. Atingimos aproximadamente 99,97 % do valo
 ![](../graphs/drop_wave.png)
 
 ![](../graphs/drop_wave_zoom.png)
+
+
+## Referências
+
+### Algoritmo
+
+- https://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol1/hmw/article1.html
+- Slides da cadeira de Inteligência Artificial, pelo prof. Bruno
+
+### Funções
+
+- Drop Wave: https://www.sfu.ca/~ssurjano/drop.html
+- Shubert: https://www.sfu.ca/~ssurjano/shubert.html
+- Gráficos em R: https://www.harding.edu/fmccown/r/
